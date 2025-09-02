@@ -42,10 +42,16 @@ function App() {
   else if (weatherCode >= 80) icon = thunder;
   else if (weatherCode >= 1 && weatherCode < 50) icon = cloudy;
 
+  let text = "Sunny";
+  if (weatherCode >= 51 && weatherCode < 80) text = "Rainy";
+  else if (weatherCode >= 80) text = "Thunderstorm";
+  else if (weatherCode >= 1 && weatherCode < 50) text = "Cloudy";
+
   return (
     <div className="weather-container">
       <img src={icon} alt="Weather Icon" className="weather-icon" />
       <div className="temperature">{weather.temperature}°C</div>
+      <div className="condition">{text}</div>
       <div className="details">
         <p>💨 Wind: {weather.windspeed} km/h</p>
         <p>🧭 Wind Direction: {weather.winddirection}°</p>
