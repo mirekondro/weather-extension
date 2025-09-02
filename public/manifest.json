@@ -1,21 +1,10 @@
 {
   "manifest_version": 3,
   "name": "Weather Extension",
-  "short_name": "Weather",
   "version": "1.0",
   "description": "Ukáže aktuální počasí",
   "permissions": ["geolocation"],
   "action": {
-    "default_popup": "index.html",
-    "default_icon": {
-      "16": "favicon.ico",
-      "48": "logo192.png",
-      "128": "logo512.png"
-    }
-  },
-  "icons": {
-    "16": "favicon.ico",
-    "48": "logo192.png",
-    "128": "logo512.png"
+    "default_popup": "index.html"
   }
 }
