@@ -65,6 +65,7 @@ function App() {
 
   return (
     <div className="weather-container">
+      <h1><span>You</span>Weather</h1>
       <img src={getIcon(weather.weathercode)} alt="Weather Icon" className="weather-icon" />
       <div className="temperature">{weather.temperature}°C</div>
       <div className="condition">{getText(weather.weathercode)}</div>
