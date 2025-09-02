@@ -1,10 +1,9 @@
 .weather-container {
   font-family: 'Arial', sans-serif;
   text-align: center;
-  width: 220px;
+  width: 250px;
   padding: 20px;
-  background: linear-gradient(to bottom, #e0f7fa, #ffffff);
-  border-radius: 20px;
+  background: #ffffff;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
@@ -20,7 +19,36 @@
   margin-bottom: 10px;
 }
 
+.weather-container .condition {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
 .details p {
   margin: 4px 0;
+  font-size: 14px;
+}
+
+.hourly-forecast {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.hourly-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hourly-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.hourly-temp,
+.hourly-time {
+  margin-top: 5px;
   font-size: 14px;
 }
