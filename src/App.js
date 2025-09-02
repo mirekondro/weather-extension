@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import sunny from "./icons/sunny.png";
+import cloudy from "./icons/cloudy.png";
+import rain from "./icons/rain.png";
+import thunder from "./icons/thunder.png";
 
 function App() {
   const [weather, setWeather] = useState(null);
@@ -29,17 +33,25 @@ function App() {
     }
   }, []);
 
-  if (loading) return <div className="weather">Načítám počasí...</div>;
-  if (!weather) return <div className="weather">Nepodařilo se načíst počasí</div>;
+  if (loading) return <div className="weather">Loading weather...</div>;
+  if (!weather) return <div className="weather">Failed to load weather</div>;
+
+  const weatherCode = weather.weathercode;
+  let icon = sunny;
+  if (weatherCode >= 51 && weatherCode < 80) icon = rain;
+  else if (weatherCode >= 80) icon = thunder;
+  else if (weatherCode >= 1 && weatherCode < 50) icon = cloudy;
 
   return (
-    <div className="weather">
-      <h3>Aktuální počasí</h3>
-      <p>🌡️ Teplota: {weather.temperature} °C</p>
-      <p>💨 Vítr: {weather.windspeed} km/h</p>
-      <p>🧭 Směr větru: {weather.winddirection}°</p>
+    <div className="weather-container">
+      <img src={icon} alt="Weather Icon" className="weather-icon" />
+      <div className="temperature">{weather.temperature}°C</div>
+      <div className="details">
+        <p>💨 Wind: {weather.windspeed} km/h</p>
+        <p>🧭 Wind Direction: {weather.winddirection}°</p>
+      </div>
     </div>
   );
 }
 
-export default App;
+export default App
